@@ -4,6 +4,7 @@
   "private": true,
   "main": "generate_report.js",
   "scripts": {
+    "build": "node generate_report.js",
     "start": "node generate_report.js"
   },
   "dependencies": {

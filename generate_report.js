@@ -4,6 +4,8 @@ const {
   LevelFormat, PageNumber, PageBreak, VerticalAlign
 } = require('docx');
 const fs = require('fs');
+const path = require('path');
+const os = require('os');
 
 // Colors
 const COLOR = {
@@ -184,6 +186,17 @@ function infoBox(title, lines, bgColor = 'EBF5FB', titleColor = COLOR.info) {
 }
 
 // ===================== DOCUMENT =====================
+
+function getOutputFilePath() {
+  const outputDir = process.env.OUTPUT_DIR
+    ? path.resolve(process.env.OUTPUT_DIR)
+    : process.env.VERCEL
+      ? path.join(os.tmpdir(), 'nw-executive-outputs')
+      : path.join(process.cwd(), 'outputs');
+
+  fs.mkdirSync(outputDir, { recursive: true });
+  return path.join(outputDir, 'Auditoria_NW_Executive_Silencode.docx');
+}
 
 const doc = new Document({
   numbering: {
@@ -704,6 +717,7 @@ const doc = new Document({
 });
 
 Packer.toBuffer(doc).then(buffer => {
-  fs.writeFileSync('/mnt/user-data/outputs/Auditoria_NW_Executive_Silencode.docx', buffer);
-  console.log('Relatório gerado com sucesso!');
+  const outputFilePath = getOutputFilePath();
+  fs.writeFileSync(outputFilePath, buffer);
+  console.log(`Relatório gerado com sucesso! Arquivo salvo em: ${outputFilePath}`);
 });
