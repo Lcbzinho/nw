@@ -1,0 +1,12 @@
+{
+  "name": "nw-executive",
+  "version": "1.0.0",
+  "private": true,
+  "main": "generate_report.js",
+  "scripts": {
+    "start": "node generate_report.js"
+  },
+  "dependencies": {
+    "docx": "^9.6.1"
+  }
+}
