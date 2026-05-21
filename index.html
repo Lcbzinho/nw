@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NW Executive</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0f172a;
+        --panel: #111827;
+        --text: #f8fafc;
+        --muted: #94a3b8;
+        --accent: #c9a84c;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(circle at top, #1e293b 0%, #0f172a 55%, #020617 100%);
+        color: var(--text);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      main {
+        width: min(92vw, 720px);
+        padding: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        background: rgba(17, 24, 39, 0.88);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+      }
+      p {
+        margin: 0 0 28px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #111827;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>NW Executive</h1>
+      <p>Baixe o relatório de auditoria em Word gerado pela aplicação.</p>
+      <a href="/api/report">Baixar relatório .docx</a>
+    </main>
+  </body>
+  </html>
